@@ -1,0 +1,111 @@
+{
+  "lang":"en",
+  "name":"pipeline",
+  "version":"0.0.0",
+  "spacy_version":">=3.0.5,<3.1.0",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_git_version":"53a3b967a",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null
+  },
+  "labels":{
+    "tok2vec":[
+
+    ],
+    "ner":[
+      "ACTIVE RUN",
+      "CODEBASE LINK",
+      "CONFLUENCE LINK",
+      "CONTACT TEAM",
+      "EXECUTION DETAILS",
+      "JOB DETAILS",
+      "JOB NAME",
+      "JOB OWNER",
+      "LAST RUN",
+      "LAST RUN EXECUTION TIME",
+      "NEXT RUN"
+    ]
+  },
+  "pipeline":[
+    "tok2vec",
+    "ner"
+  ],
+  "components":[
+    "tok2vec",
+    "ner"
+  ],
+  "disabled":[
+
+  ],
+  "performance":{
+    "ents_per_type":{
+      "JOB DETAILS":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "JOB NAME":{
+        "p":0.5,
+        "r":0.472972973,
+        "f":0.4861111111
+      },
+      "CONFLUENCE LINK":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "CODEBASE LINK":{
+        "p":0.8,
+        "r":1.0,
+        "f":0.8888888889
+      },
+      "EXECUTION DETAILS":{
+        "p":0.9850746269,
+        "r":1.0,
+        "f":0.992481203
+      },
+      "LAST RUN":{
+        "p":0.7906976744,
+        "r":1.0,
+        "f":0.8831168831
+      },
+      "NEXT RUN":{
+        "p":0.6590909091,
+        "r":1.0,
+        "f":0.7945205479
+      },
+      "JOB OWNER":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "ACTIVE RUN":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "LAST RUN EXECUTION TIME":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "CONTACT TEAM":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      }
+    },
+    "ents_f":0.8338658147,
+    "ents_p":0.8006134969,
+    "ents_r":0.87,
+    "tok2vec_loss":53.2080006056,
+    "ner_loss":12174.3501095529
+  }
+}
