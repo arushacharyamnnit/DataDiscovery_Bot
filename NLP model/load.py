@@ -12,10 +12,16 @@ import re
 import random
 from spacy.tokens import DocBin
 
+from spello.model import SpellCorrectionModel
+sp = SpellCorrectionModel(language='en')
+sp.load('SpellModel/model.pkl')
+
 nlp = spacy.load('output/model-best')
 
-ex = "what is codebase link and last run of C"
-
+ex = "conflence link, next run job a"
+# print(ex)
+ex=sp.spell_correct(ex)['spell_corrected_text']
+print(ex)
 doc = nlp(ex)
 
 for ent in doc.ents:

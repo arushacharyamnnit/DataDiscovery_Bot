@@ -45,7 +45,8 @@
                 type: "POST",
                 url: "/user_input",
             }).done(function(data) {
-                var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+
+                var botHtml = '<p class="botText"><span>' +data+ "</span></p>";
                 $("#chatbox").append($.parseHTML(botHtml));
                 document.getElementById("userInput").scrollIntoView({
                     block: "start",

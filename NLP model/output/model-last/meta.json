@@ -2,13 +2,13 @@
   "lang":"en",
   "name":"pipeline",
   "version":"0.0.0",
-  "spacy_version":">=3.0.5,<3.1.0",
+  "spacy_version":">=3.0.6,<3.1.0",
   "description":"",
   "author":"",
   "email":"",
   "url":"",
   "license":"",
-  "spacy_git_version":"53a3b967a",
+  "spacy_git_version":"df3444421",
   "vectors":{
     "width":0,
     "vectors":0,
@@ -20,17 +20,13 @@
 
     ],
     "ner":[
-      "ACTIVE RUN",
-      "CODEBASE LINK",
-      "CONFLUENCE LINK",
-      "CONTACT TEAM",
-      "EXECUTION DETAILS",
-      "JOB DETAILS",
-      "JOB NAME",
-      "JOB OWNER",
-      "LAST RUN",
-      "LAST RUN EXECUTION TIME",
-      "NEXT RUN"
+      "CODEBASE_LINK",
+      "CONFLUENCE_LINK",
+      "EXECUTION_DETAILS",
+      "JOB_DETAILS",
+      "JOB_NAME",
+      "LAST_RUN",
+      "NEXT_RUN"
     ]
   },
   "pipeline":[
@@ -46,66 +42,46 @@
   ],
   "performance":{
     "ents_per_type":{
-      "JOB DETAILS":{
+      "JOB_DETAILS":{
         "p":1.0,
         "r":1.0,
         "f":1.0
       },
-      "JOB NAME":{
+      "JOB_NAME":{
         "p":0.5,
-        "r":0.472972973,
-        "f":0.4861111111
+        "r":0.6666666667,
+        "f":0.5714285714
       },
-      "CONFLUENCE LINK":{
+      "CONFLUENCE_LINK":{
         "p":1.0,
         "r":1.0,
         "f":1.0
       },
-      "CODEBASE LINK":{
+      "CODEBASE_LINK":{
         "p":0.8,
         "r":1.0,
         "f":0.8888888889
       },
-      "EXECUTION DETAILS":{
-        "p":0.9850746269,
-        "r":1.0,
-        "f":0.992481203
-      },
-      "LAST RUN":{
-        "p":0.7906976744,
-        "r":1.0,
-        "f":0.8831168831
-      },
-      "NEXT RUN":{
-        "p":0.6590909091,
-        "r":1.0,
-        "f":0.7945205479
-      },
-      "JOB OWNER":{
+      "EXECUTION_DETAILS":{
         "p":1.0,
         "r":1.0,
         "f":1.0
       },
-      "ACTIVE RUN":{
-        "p":1.0,
+      "LAST_RUN":{
+        "p":0.7777777778,
         "r":1.0,
-        "f":1.0
+        "f":0.875
       },
-      "LAST RUN EXECUTION TIME":{
-        "p":1.0,
+      "NEXT_RUN":{
+        "p":0.6666666667,
         "r":1.0,
-        "f":1.0
-      },
-      "CONTACT TEAM":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+        "f":0.8
       }
     },
-    "ents_f":0.8338658147,
-    "ents_p":0.8006134969,
-    "ents_r":0.87,
-    "tok2vec_loss":53.2080006056,
-    "ner_loss":12174.3501095529
+    "ents_f":0.8421052632,
+    "ents_p":0.7741935484,
+    "ents_r":0.9230769231,
+    "tok2vec_loss":123.7384526431,
+    "ner_loss":21378.5337526628
   }
 }
