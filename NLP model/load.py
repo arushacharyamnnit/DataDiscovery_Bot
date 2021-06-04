@@ -18,9 +18,9 @@ sp.load('SpellModel/model.pkl')
 
 nlp = spacy.load('output/model-best')
 
-ex = "conflence link, next run job a"
+ex = "give me job owner of joba"
 # print(ex)
-ex=sp.spell_correct(ex)['spell_corrected_text']
+# ex=sp.spell_correct(ex)['spell_corrected_text']
 print(ex)
 doc = nlp(ex)
 

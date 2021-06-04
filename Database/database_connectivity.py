@@ -7,12 +7,15 @@ def DataUpdate(job,execution):
             passwd="",
             database="user"
      )
-     
      mycursor = mydb.cursor()
-     sql='SELECT * from job where JID="{0}";'.format(job['JID'])
+     sql1='SELECT root_job_name FROM matching_table where other_job_name="{0}";'.format(job['JOB_NAME']) 
+     mycursor.execute(sql1)
+     ans1=mycursor.fetchall()
+     # print(ans1[0][0])
+     sql='SELECT * from job where JOB_NAME="{0}";'.format(ans1[0][0])
      mycursor.execute(sql)
      ans=mycursor.fetchall()
-     # print(ans[0])
+     
      Dict={}
      cnt=0
      for i,j in job.items():

@@ -22,11 +22,16 @@
     "ner":[
       "CODEBASE_LINK",
       "CONFLUENCE_LINK",
+      "CONTACT_TEAM",
       "EXECUTION_DETAILS",
+      "FAILURE",
       "JOB_DETAILS",
       "JOB_NAME",
+      "JOB_OWNER",
       "LAST_RUN",
-      "NEXT_RUN"
+      "LAST_RUN_EXECUTION_TIME",
+      "NEXT_RUN",
+      "SUCCESS"
     ]
   },
   "pipeline":[
@@ -49,8 +54,8 @@
       },
       "JOB_NAME":{
         "p":0.5,
-        "r":0.6666666667,
-        "f":0.5714285714
+        "r":0.756097561,
+        "f":0.6019417476
       },
       "CONFLUENCE_LINK":{
         "p":1.0,
@@ -68,20 +73,45 @@
         "f":1.0
       },
       "LAST_RUN":{
-        "p":0.7777777778,
+        "p":0.7916666667,
         "r":1.0,
-        "f":0.875
+        "f":0.8837209302
       },
       "NEXT_RUN":{
-        "p":0.6666666667,
+        "p":0.8,
+        "r":0.6666666667,
+        "f":0.7272727273
+      },
+      "JOB_OWNER":{
+        "p":1.0,
         "r":1.0,
-        "f":0.8
+        "f":1.0
+      },
+      "LAST_RUN_EXECUTION_TIME":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "CONTACT_TEAM":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "SUCCESS":{
+        "p":1.0,
+        "r":0.4,
+        "f":0.5714285714
+      },
+      "FAILURE":{
+        "p":1.0,
+        "r":0.6,
+        "f":0.75
       }
     },
-    "ents_f":0.8421052632,
-    "ents_p":0.7741935484,
-    "ents_r":0.9230769231,
-    "tok2vec_loss":123.7384526431,
-    "ner_loss":21378.5337526628
+    "ents_f":0.8291970803,
+    "ents_p":0.7759562842,
+    "ents_r":0.8902821317,
+    "tok2vec_loss":11.0109629432,
+    "ner_loss":3082.5717623214
   }
 }

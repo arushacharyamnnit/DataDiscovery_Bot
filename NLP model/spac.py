@@ -13,8 +13,8 @@ import random
 from spacy.tokens import DocBin
 from tqdm import tqdm
 
-#nlp=spacy.load('en_core_web_sm')
-nlp = spacy.blank("en")
+nlp=spacy.load('en_core_web_sm')
+# nlp = spacy.blank("en")
 
 def load_data(file):
   with open(file,"r",encoding="utf-8") as f:
