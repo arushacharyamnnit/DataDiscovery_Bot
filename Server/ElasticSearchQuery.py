@@ -195,7 +195,7 @@ class ElasticSearchQuery:
             print('Fetching data from elastic search...') 
             for name in names:
                 if attributes!=[]:
-                    body = self.getbody5(name,attributes)
+                    body = self.QueryGlossary(name,attributes)
                     res = es.search(index='glossary2',doc_type='_doc',body=body)
                     print('Data fetched from elastic search: ')
                     pprint.pprint(res)

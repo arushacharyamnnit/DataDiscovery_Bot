@@ -24,7 +24,7 @@ def metrics():
     mycursor.execute(sql_fail)
     zero=mycursor.fetchall()
 
-    sql_resp='SELECT AVG({col1}) FROM {table_name};'.format(table_name=data['bot_performance_metrics'],col1=data['bot_response_time'])
+    sql_resp='SELECT AVG(bot_response_time) FROM {table_name};'.format(table_name=data['bot_performance_metrics'],col1=data['bot_response_time'])
     mycursor.execute(sql_resp)
     resp=mycursor.fetchall()
 
@@ -34,7 +34,7 @@ def metrics():
     sql_unsatisfied='SELECT COUNT(*) FROM {table_name} WHERE {col1}="No";'.format(table_name=data['bot_performance_metrics'],col1=data['Feedback'])
     mycursor.execute(sql_unsatisfied)
     no=mycursor.fetchall()
-
+    print(resp)
     dict['Successful Queries']=one[0][0]
     dict['Unsuccessful Queries']=zero[0][0]
     dict['Average of bot response time']=resp[0][0]

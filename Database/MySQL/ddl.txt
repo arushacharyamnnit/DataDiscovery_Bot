@@ -1,0 +1,41 @@
+
+## To create bot_performance_metrics table ##
+
+CREATE TABLE `bot_performance_metrics` (
+  `query_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(45) NOT NULL,
+  `user_query_input` varchar(200) NOT NULL,
+  `query_input_time` varchar(45) NOT NULL,
+  `bot_response_time` float NOT NULL,
+  `successful` int NOT NULL,
+  `Feedback` varchar(45) DEFAULT NULL,
+  `Comments` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`query_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=387 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+## To create entities table ##
+
+CREATE TABLE `entities` (
+  `entity_id` int NOT NULL AUTO_INCREMENT,
+  `entity_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`entity_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+## To create query_entity_matcher table ##
+
+CREATE TABLE `query_entity_matcher` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `query_id` int NOT NULL,
+  `entity_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `query_id_idx` (`query_id`),
+  KEY `entity_id_idx` (`entity_id`),
+  CONSTRAINT `entity_id` FOREIGN KEY (`entity_id`) REFERENCES `entities` (`entity_id`),
+  CONSTRAINT `query_id` FOREIGN KEY (`query_id`) REFERENCES `bot_performance_metrics` (`query_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=790 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

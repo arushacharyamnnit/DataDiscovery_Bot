@@ -25,17 +25,7 @@ def load_data(file):
 
 
 
-train= load_data("training_data_gloss2.json")
-# # test=load_data("train_data.json")
-# train=re
-# print(train)
-# train.pop(630)
-# train.pop(1629)
-# train.pop(2628)
-# train.pop(3627)
-# train.pop(4626)
-# train=train[:500]
-# random.shuffle(train)
+train= load_data("Training_Data/training_data_gloss.json")
 
 def create_training(TRAIN_DATA):
   db = DocBin()

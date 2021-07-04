@@ -1,0 +1,40 @@
+{
+    "CREATOR": {
+        "Entity": "CREATOR",
+        "Precision": "0.83",
+        "Recall": "0.77",
+        "F1 score": "0.80"
+    },
+    "DESCRIPTION": {
+        "Entity": "DESCRIPTION",
+        "Precision": "1.00",
+        "Recall": "1.00",
+        "F1 score": "1.00"
+    },
+    "NAME": {
+        "Entity": "NAME",
+        "Precision": "0.82",
+        "Recall": "0.94",
+        "F1 score": "0.87"
+    },
+    "O": {
+        "Entity": "O",
+        "Precision": "0.92",
+        "Recall": "0.95",
+        "F1 score": "0.94"
+    },
+    "PATH": {
+        "Entity": "PATH",
+        "Precision": "1.00",
+        "Recall": "0.50",
+        "F1 score": "0.67"
+    },
+    "STATUS": {
+        "Entity": "STATUS",
+        "Precision": "0.96",
+        "Recall": "1.00",
+        "F1 score": "0.98"
+    },
+    "Cosine Similarity": 0.9755877708036937,
+    "Root Mean Squared Error": 0.6878048780487804
+}

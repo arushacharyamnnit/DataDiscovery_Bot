@@ -12,25 +12,36 @@ class ModelLoader:
         self.dict_index_fields=dict_index_fields
 
     
-    def getFuzzy(self,name):
+    def getFuzzy(self,name,category):
      
         name=name.lower()
         body={
             "query": {
                "fuzzy": {
-                  "job_name": {
+                  category: {
                       "value": name,
                        "fuzziness": "AUTO",
                     }
                 }
             }
          }
-        res = es.search(index='test',doc_type='_doc',body=body)
+        res=""
+        if(category=='job_name'):
+            res = es.search(index='test',doc_type='_doc',body=body)
+            return res['hits']['hits'][0]['_source']['job_name']
+        elif category=='Entity Name':    
+            res = es.search(index='ocidw_ent',doc_type='_doc',body=body)
+            return res['hits']['hits'][0]['_source']['Entity Name']
+        elif category=='Attribute Name':    
+            res = es.search(index='ocidw',doc_type='_doc',body=body)    
+            return res['hits']['hits'][0]['_source']['Attribute Name']
+        else:
+            res = es.search(index='glossary2',doc_type='_doc',body=body)
+            return res['hits']['hits'][0]['_source']['Name']
 
         if(res['hits']['hits']==[]):
             return name
-        else:
-            return res['hits']['hits'][0]['_source']['job_name']
+            
 
     
     def getDictionary(self,JobNames,StaticAttributes,DynamicAttributes):
@@ -59,7 +70,7 @@ class ModelLoader:
         for ent in doc.ents[::-1]:
             
             if(ent.label_=='job_name'):
-                jname=self.getFuzzy(ent.text)
+                jname=self.getFuzzy(ent.text,'job_name')
                 if(StaticAttributes!=[] or DynamicAttributes!=[]):
                     JobAndAttributes.append(self.getDictionary(JobNames,StaticAttributes,DynamicAttributes))
                     JobNames,StaticAttributes,DynamicAttributes=[],[],[]
@@ -85,9 +96,12 @@ class ModelLoader:
         for ent in doc.ents:
             print('Text: ',ent.text,'and Labels: ',ent.label_)
             if(ent.label_=="Entity Name"):
-                EntityName.append(ent.text.lower())
+                ename=self.getFuzzy(ent.text,'Entity Name')
+                EntityName.append(ename.lower())
+                
             elif (ent.label_=="Attribute Name"):
-                    AttributeName.append(ent.text.lower())
+                    aname=self.getFuzzy(ent.text,'Attribute Name')
+                    AttributeName.append(aname.lower())
             else:
                 if ent.label_ in self.dict_index_fields['ocidw']:
                     Attributes.append(ent.label_)
@@ -112,13 +126,14 @@ class ModelLoader:
             # print('Text: ',ent.text,' and Labels: ',ent.label_)
 
             if(ent.label_=='NAME'):
+                gname=self.getFuzzy(ent.text,'Name')
                 if(GlossaryAttributes!=[]):
                     GlossaryAndAttributes.append(self.getGlossaryMap(GlossaryNames,GlossaryAttributes))
                     GlossaryNames=[]
                     GlossaryAttributes=[]
-                    GlossaryNames.append(ent.text.lower())
+                    GlossaryNames.append(gname.lower())
                 else:
-                    GlossaryNames.append(ent.text.lower())
+                    GlossaryNames.append(gname.lower())
             else:
                 label=mapping[ent.label_]
                 if label in self.dict_index_fields['glossary2']:

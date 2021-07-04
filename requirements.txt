@@ -1,0 +1,17 @@
+flask
+spacy
+en_core_web_sm
+en_core_web_lg
+pathlib
+os-sys
+scikit-learn
+elasticsearch
+slackclient
+python-dotenv
+slackeventsapi
+matplotlib
+pandas
+numpy
+mysql
+Flask-MySQLdb
+mysql-connector-python

@@ -351,16 +351,28 @@ def NLP_metrics():
     channel_id=data.get('channel_id')
     if(category=='job'):
         string=""
-        fh=open('../NLP model/NLP_metrics.txt','r')
+        fh=open('../NLP model/NLPmetrics/job_metrics.txt','r')
         for x in fh:
             x=x[:len(x)-1]
             string+=x+'\n'
         fh.close()
         client.chat_postMessage(channel=channel_id,text=string)
     elif category=='catalog':
-        client.chat_postMessage(channel=channel_id,text="catalog")
+        string=""
+        fh=open('../NLP model/NLPmetrics/catalog_metrics.txt','r')
+        for x in fh:
+            x=x[:len(x)-1]
+            string+=x+'\n'
+        fh.close()
+        client.chat_postMessage(channel=channel_id,text=string)
     elif category=='glossary':
-        client.chat_postMessage(channel=channel_id,text="glossary")
+        string=""
+        fh=open('../NLP model/NLPmetrics/glossary_metrics.txt','r')
+        for x in fh:
+            x=x[:len(x)-1]
+            string+=x+'\n'
+        fh.close()
+        client.chat_postMessage(channel=channel_id,text=string)
     else:
         client.chat_postMessage(channel=channel_id,text="Invalid parameter")
 
