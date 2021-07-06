@@ -13,7 +13,7 @@ train = load_data(r"jobRuns.json")
 lst=train['results']
 
 es = Elasticsearch([{'host':'localhost','port':'9200'}])
-es.indices.delete(index="test1",ignore=[400,404])
+# es.indices.delete(index="test1",ignore=[400,404])
 es.indices.create(index="test1",ignore=400)
 # es = helpers.bulk(es,lst[0]['items'],index="test1")
 for i in lst[0]['items']:

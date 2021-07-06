@@ -18,9 +18,9 @@ df3.fillna("not defined", inplace=True)
 df3=df3.to_dict('records')
 es = Elasticsearch([{'host':'localhost','port':'9200'}])
 # es.indices.delete(index="glossary",ignore=[400,404])
-es = Elasticsearch([{'host':'localhost','port':'9200'}])
+# es = Elasticsearch([{'host':'localhost','port':'9200'}])
 
-# es.indices.create(index="glossary1",ignore=400)
+es.indices.create(index="glossary2",ignore=400)
 
 
 es = helpers.bulk(es,df3,index="glossary2")

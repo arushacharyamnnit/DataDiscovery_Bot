@@ -2,7 +2,7 @@ import spacy
 import json
 from spacy.training import offsets_to_biluo_tags
 # from sklearn.metrics import confusion_matrix
-from matplotlib import pyplot
+# from matplotlib import pyplot
 from sklearn.metrics import *
 import numpy
 import random
@@ -37,14 +37,14 @@ def load_data(file):
 def write_data(file, data):
     with open (file, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
-nlp = spacy.load("model-last")
+nlp = spacy.load("output_ocidw/model-best")
 
-docs = load_data("Testing_Data/test_data_gloss.json")
+docs = load_data("Testing_Data/test_data_ocidw.json")
  
 # print(docs)   
-# random.shuffle(docs)
-# docs=docs[1:1000]
-docs=docs['annotations']
+random.shuffle(docs)
+docs=docs[1:600]
+# docs=docs['annotations']
 # print(docs)
 def get_cleaned_label(label: str):
     if "-" in label:
@@ -135,43 +135,44 @@ for ent in all_labels1:
     # print("PRECISION"+'\t'+"RECALL"+'\t'+"F1SCORE")
     # acc=0.97
     if ent!='Entity' and ent!='Attribute':
-        inner={}
-        tp=getTP(y_true,y_pred,ent)
-        fp=getFP(y_true,y_pred,ent)
-        fn=getFN(y_true,y_pred,ent)
-        print("Entity: ",ent,"  Total Instances Present: ",tp+fn)
-        print("TP"+'\t'+'FP'+'\t'+'FN')
-        inner['Entity']=ent
-        # inner['Total Instances Present']=tp+fn
-        # inner['True Positive']=tp
-        # inner['False Positive']=fp
-        # inner['False Negative']=fn
-    
-
+            inner={}
+        
+            tp=getTP(y_true,y_pred,ent)
+            fp=getFP(y_true,y_pred,ent)
+            fn=getFN(y_true,y_pred,ent)
+            print("Entity: ",ent,"  Total Instances Present: ",tp+fn)
+            print("TP"+'\t'+'FP'+'\t'+'FN')
+            inner['Entity']=ent
+            # inner['Total Instances Present']=tp+fn
+            # inner['True Positive']=tp
+            # inner['False Positive']=fp
+            # inner['False Negative']=fn
         
 
+            
 
 
 
-        precision=tp/(tp+fp)
-        recall=tp/(tp+fn)
-        if(precision+recall!=0):
-         f1score=(2*precision*recall)/(precision+recall)
-        else:
-         f1score=0
-        # acc+=f1score
-        f1score="{:.2f}".format(f1score)
-        precision="{:.2f}".format(precision)
-        recall="{:.2f}".format(recall)
-        inner['Precision']=precision
-        inner['Recall']=recall
-        inner['F1 score']=f1score
-        dict[ent]=inner
-        
-        print(tp,'\t',fp,'\t',fn)
-        print('PRECISION\t'+'RECALL'+'\t'+'F1SCORE')
-        print(precision,'\t\t',recall,'\t',f1score)
-        print()
+
+            precision=tp/(tp+fp)
+            recall=tp/(tp+fn)
+            if(precision+recall!=0):
+                f1score=(2*precision*recall)/(precision+recall)
+            else:
+                f1score=0
+            # acc+=f1score
+            f1score="{:.2f}".format(f1score)
+            precision="{:.2f}".format(precision)
+            recall="{:.2f}".format(recall)
+            inner['Precision']=precision
+            inner['Recall']=recall
+            inner['F1 score']=f1score
+            dict[ent]=inner
+            
+            print(tp,'\t',fp,'\t',fn)
+            print('PRECISION\t'+'RECALL'+'\t'+'F1SCORE')
+            print(precision,'\t\t',recall,'\t',f1score)
+            print()
     
 
 print('Cosine Similarity: ',calculate_cosine_similarity(y_true1,y_pred1))                 
@@ -188,7 +189,7 @@ string=[]
 string.append(json.dumps(dict,indent=4))
 st=""
 # print(string)
-fh=open('glossary_metrics.txt','w')
+fh=open('cat_metrics.txt','w')
 for i in string:
     fh.write(i+'\n')
 fh.close()    

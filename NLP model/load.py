@@ -8,7 +8,7 @@ import spacy
 #from wordcloud import WordCloud, STOPWORDS
 from spacy.util import minibatch, compounding
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import re
 import random
 from spacy.tokens import DocBin
